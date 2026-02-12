@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from vege.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('receipe_list/', receipe_list, name='receipe_list'),
 ]
