@@ -19,8 +19,13 @@ def receipe_list(request):
             receipe_image=receipe_image
         )
 
-        return redirect('receipe_list') 
+        return redirect('receipe_list')
+
+    queryset = Receipe.objects.all()
+    context = {
+            'receipe_list': queryset
+        } 
        # print(receipe_description)
        #print(receipe_name)
 
-    return render(request, 'receipe_list.html')
+    return render(request, 'receipe_list.html', context)
