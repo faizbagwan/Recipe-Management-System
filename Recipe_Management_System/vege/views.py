@@ -29,3 +29,9 @@ def receipe_list(request):
        #print(receipe_name)
 
     return render(request, 'receipe_list.html', context)
+
+
+def delete_receipe(request, id):
+    receipe = Receipe.objects.get(id=id)
+    receipe.delete()
+    return redirect('receipe_list')
