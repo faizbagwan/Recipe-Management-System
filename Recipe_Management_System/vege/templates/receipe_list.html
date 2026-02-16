@@ -52,6 +52,26 @@
         <button type="submit" class="btn btn-success">Add Recipe</button>
       </form>
 
+      <div class="mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Search by Recipe Name</label
+              >
+              <input
+                name="search"
+                type="text"
+                class="form-control"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+        </div>
+      </div>
+
+      <h2>Receipe List</h2>
+      <a href="{% url 'receipe_list' %}" class="btn btn-secondary">Refresh</a>
       <table class="table">
         <thead>
           <tr>
@@ -68,10 +88,25 @@
             <th scope="row">{{ forloop.counter }}</th>
             <td>{{ receipe.receipe_name }}</td>
             <td>{{ receipe.receipe_description }}</td>
-            <td><img src="/media/{{ receipe.receipe_image }}" width="100" height="100"></td>
             <td>
-              {% comment %} <a href="{% url 'edit_receipe' receipe.id %}" class="btn btn-primary btn-sm">Edit</a> {% endcomment %}
-              <a href="{% url 'delete_receipe' receipe.id %}" class="btn btn-danger btn-sm">Delete</a>
+              <img
+                src="/media/{{ receipe.receipe_image }}"
+                width="100"
+                height="100"
+              />
+            </td>
+            <td>
+              <a
+                href="{% url 'update_receipe' receipe.id %}"
+                class="btn btn-primary btn-sm"
+                >Edit</a
+              >
+              <a
+                href="{% url 'delete_receipe' receipe.id %}"
+                class="btn btn-danger btn-sm"
+                >Delete</a
+              >
+            </td>
           </tr>
           {% endfor %}
         </tbody>

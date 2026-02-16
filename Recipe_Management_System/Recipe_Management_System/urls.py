@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('receipe_list/', receipe_list, name='receipe_list'),
     path('delete_receipe/<id>/', delete_receipe, name='delete_receipe'),
+    path('update_receipe/<id>/', update_receipe, name='update_receipe'),
 ]
 
 
